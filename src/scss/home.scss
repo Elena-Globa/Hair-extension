@@ -1,8 +1,12 @@
 .page {
 
     // .page__hero
-
+    
     &__hero {
+    }
+    // .page__focused
+
+    &__focused {
     }
 }
 //====================================================================================================
@@ -48,15 +52,7 @@
             }
 		}
 
-    &__title {       
-        color: rgb(255, 255, 255);
-        font-family: "Lexend Deca";
-        // font-size: toRem(36);      
-        font-weight: 400;
-        line-height: 1.33; /* 48/36 */
-        letter-spacing: toRem(-1.5);
-        text-align: left;      
-      
+    &__title {        
         // Anim
         opacity: 0;
         transform: translate(0,20%);
@@ -69,7 +65,6 @@
         padding-top: 10.893246%; /* 50/459 */
         max-width: toRem(400);
     }
-
     }
 
 		// .hero__media
@@ -85,7 +80,6 @@
                 }             
             }
         }
-
             // .hero__main-image-item
     
             &__main-image-item {
@@ -234,9 +228,7 @@
 
     // .hero__text
 
-    &__text {       
-        line-height: 1.5; /* 24/16 */  
-
+    &__text { 
             // Anim
             opacity: 0; 
             transform: translate(-100%,0);  
@@ -256,3 +248,38 @@
 }
 
 //====================================================================================================
+
+.focused {
+
+    // .focused__container
+
+    &__container {
+        @include adaptiveValue("padding-left", 50, 0, 2, $containerWidth, 992);
+        @include adaptiveValue("padding-right", 50, 0, 2, $containerWidth, 992);
+    }
+
+    // .focused__content
+
+    &__content {
+    }
+
+    // .focused__image
+
+    &__image {
+    }
+
+    // .focused__body
+
+    &__body {
+    }
+
+    // .focused__title
+
+    &__title {
+    }
+
+    // .focused__text
+
+    &__text {
+    }
+}

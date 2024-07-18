@@ -1,5 +1,19 @@
 // Заголовки, загальні БЕМ блоки та інше...
 
+// title 
+.title {
+    @include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
+}
+.title { 
+    color: rgb(255, 255, 255);
+    font-family: "Lexend Deca";       
+    font-weight: 400;
+    line-height: 1.33; /* 48/36 */
+    letter-spacing: toRem(-1.5);
+}
+.text {
+    line-height: 1.5; /* 24/16 */  
+}
 // Ссылки
 
 .book {
