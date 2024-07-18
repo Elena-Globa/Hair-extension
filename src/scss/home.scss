@@ -1,0 +1,258 @@
+.page {
+
+    // .page__hero
+
+    &__hero {
+    }
+}
+//====================================================================================================
+.hero {
+    padding-top: toRem(65);
+    padding-bottom: toRem(143);
+    @media (max-width: toEm(599.98)) {
+        padding-top: toRem(20);
+        padding-bottom: toRem(40);
+    }
+    // .hero__container
+
+    &__container {
+    }
+
+    // .hero__body
+
+    &__body {
+        max-width: toRem(955);
+        margin: 0 auto;
+        position: relative;   
+            @media (min-width: toEm(600)){   
+            display: grid;        
+            grid-template-columns: 41.884817% 31% auto; /* 412/955 */
+            align-items: start;
+        }
+    }
+    
+    // .hero__title
+    &__title {
+        @include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
+    }
+
+		// .hero__title-item
+
+		&__title-item {
+            position: relative;
+            z-index: 3;
+            @media (max-width: toEm(599.98)){          
+                &:not(:last-child) {
+                    margin-bottom: toRem(20);
+                }             
+            }
+		}
+
+    &__title {       
+        color: rgb(255, 255, 255);
+        font-family: "Lexend Deca";
+        // font-size: toRem(36);      
+        font-weight: 400;
+        line-height: 1.33; /* 48/36 */
+        letter-spacing: toRem(-1.5);
+        text-align: left;      
+      
+        // Anim
+        opacity: 0;
+        transform: translate(0,20%);
+       ._watcher-view  & {
+            transform: translate(0,0);
+            transition: transform 1s 0.5s, opacity 1s 0.5s;
+            opacity: 1;
+    }
+    @media (min-width:toEm(600)){
+        padding-top: 10.893246%; /* 50/459 */
+        max-width: toRem(400);
+    }
+
+    }
+
+		// .hero__media
+
+		&__media {
+            position: relative;
+            @media (min-width: toEm(600)) {
+                margin-left: toRem(-115);
+            }
+            @media (max-width: toEm(599.98)){
+                &:not(:last-child) {
+                    margin-bottom: toRem(20);
+                }             
+            }
+        }
+
+            // .hero__main-image-item
+    
+            &__main-image-item {
+                position: relative;
+                z-index: 2;
+            }
+      
+    // .hero__main-image
+
+    &__main-image {
+        aspect-ratio: 412 / 459;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: toRem(2.7);   
+
+        // Anim
+        opacity: 0;  
+        transform: translate(0,5%);
+        ._watcher-view  & {   
+            transform: translate(0px,0px);
+        transition: all 1s 0.1s;
+        opacity: 1;
+            }
+    }
+ 
+		// .hero__content
+
+		&__content {
+            @media (max-width: toEm(599.98)) {
+            display: flex;
+            gap: toRem(20);
+          }
+		}
+
+            // .hero__circle-image-item
+    
+            &__circle-image-item {
+                position: relative;
+                z-index: 3;
+                @media (min-width:toEm(600)){
+                    &:not(:last-child) {
+                        margin-bottom: toRem(30);
+                    }  
+                }
+                @media (max-width: toEm(599.98)) {
+                    flex-shrink: 0;
+                    flex-basis: toRem(100);
+                }
+            }
+    
+	// .hero__circle-image
+
+	&__circle-image {   
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        height: 100%;
+        max-width: toRem(243);
+        object-fit: cover; 
+        border-radius: 50%;
+        overflow: hidden;         
+    @media (min-width: toEm(600)) {
+          transform: translateX(toRem(-65)) scale(0);
+        ._watcher-view  & {    
+            transform:  translateX(toRem(-65)) scale(1);
+            transition: all 1s 1.5s;
+            }
+    }
+    @media (max-width: toEm(599.98)) {
+        transform: scale(0);
+    
+        ._watcher-view  & {    
+            transform: scale(1);
+            transition: all 1s 1.5s;
+            }
+    }
+  	}
+ 
+   		// .hero__deco-item
+
+		&__deco-item {
+            position: absolute;
+		}
+
+		// .hero__deco-item--one
+
+		&__deco-item--one {
+            aspect-ratio: 233 / 195; 
+            max-width: 56.553398%; /* 233/412 */
+            right: -26.699029%; /* 110/412 */
+            top: -16.557734%; /* 76/459 */     
+            .hero__deco {
+                transform-origin: left bottom;
+                transform: scale(0) rotate(-20deg);
+                ._watcher-view  & {    
+                    transform: scale(1) rotate(0deg);
+                    transition: all 1.5s 1s;
+                    }
+            }
+		}
+        &__deco-item--two {
+            aspect-ratio: 239 / 278;   
+            max-width: 58.009709%; /* 239/412 */
+            bottom: -31.154684%; /* 143/459 */
+            right: -21.116505%; /* 87/412 */
+            .hero__deco {
+                transform-origin: 0 0;
+                transform: scale(0) rotate(-20deg);
+                ._watcher-view  & {    
+                    transform: scale(1) rotate(0deg);
+                    transition: all 1.5s 1s;
+                    }
+            }
+        }
+     // .hero__deco
+
+    &__deco {
+       transform: scale(0);
+    }   
+  
+		// .hero__figure-item
+
+		&__figure-item {
+            position: absolute;
+            max-width: toRem(197);
+            aspect-ratio: 197 / 197;
+            bottom: -12.418301%; /* 57/459 */
+            left: -21.84466%; /* 90/412 */
+		}
+
+    // .hero__figure
+
+    &__figure {   
+        transform-origin:  top right;
+        transform: scale(0) rotate(-20deg);
+            ._watcher-view  & {    
+            transform: scale(1) rotate(0deg);
+            transition: all 1.5s 1s;
+            }
+    }
+ 		// .hero__text-item
+
+		&__text-item {
+		}
+
+
+    // .hero__text
+
+    &__text {       
+        line-height: 1.5; /* 24/16 */  
+
+            // Anim
+            opacity: 0; 
+            transform: translate(-100%,0);  
+            ._watcher-view  & { 
+                transform: translate(0,0);   
+            transition: all 1s 0.5s;
+            opacity: 1;
+                }                   
+        @media (min-width: toEm(600)) {
+            padding-left: 15.652174%; /* 36/230 */
+            max-width: toRem(230);
+        }
+        @media (max-width: toEm(599.98)) {
+            align-self: center;
+        }
+    }
+}
+
+//====================================================================================================

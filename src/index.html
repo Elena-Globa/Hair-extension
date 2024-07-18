@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"HomePage"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<section data-prlx-parent  data-watch class="page__hero hero">
+					<div class="hero__container">
+						<div class="hero__body">
+							<div  data-prlx class="hero__title-item">
+								<h1 class="hero__title">
+									Hi, we are Debonaire.
+									Ready to create an art form on your body. 
+								</h1>
+							</div>						
+							<div class="hero__media">
+								<div data-prlx class="hero__figure-item">
+									<img class="hero__figure" src="@img/hero/figure.svg" alt="Image">
+								</div>
+								<div data-prlx data-coefficient="3" class="hero__main-image-item">
+									<img class="hero__main-image" src="@img/hero/main-image.png" alt="Image">
+								</div>
+								<div data-prlx class="hero__deco-item hero__deco-item--one">
+									<img class="hero__deco" src="@img/hero/decor-01.svg" alt="Image">
+								</div>
+								<div data-prlx class="hero__deco-item hero__deco-item--two">
+									<img class="hero__deco" src="@img/hero/decor-02.svg" alt="Image">
+								</div>						
+							</div>
+							<div class="hero__content">
+								<div data-prlx class="hero__circle-image-item">
+									<img  class="hero__circle-image" src="@img/hero/circle-image.png" alt="Image">
+								</div>
+								<div data-prlx class="hero__text-item">
+									<div class="hero__text">
+										<p>
+											Debonaire is natural product-based, hair design & boutique.
+										</p>
+									</div>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

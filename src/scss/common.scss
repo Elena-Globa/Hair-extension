@@ -1,0 +1,37 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+// Ссылки
+
+.book {
+    position: relative;
+    color: #fff;
+    letter-spacing: toRem(-0.4);    
+    font-weight: 500;
+    line-height: 131.25%; /* 21/16 */
+    padding-left: toRem(3);
+    padding-right: toRem(3);
+    padding-top: toRem(5.5);
+    padding-bottom: toRem(5.5);
+    span {
+        position: relative;
+        z-index: 2;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #F95454;
+        height: toRem(2);
+        width: 100%;
+        transition: all 0.3s;
+    }
+    @media (any-hover: hover){
+        &:hover{
+            &::after {
+                top: 0;
+                height: 100%;
+            }          
+        }
+    }
+}
