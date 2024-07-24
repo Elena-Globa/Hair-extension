@@ -17,14 +17,15 @@
 //====================================================================================================
 .hero {
     padding-top: toRem(65);
-    padding-bottom: toRem(143);
-    @media (max-width: toEm(599.98)) {
-        padding-top: toRem(20);
-        padding-bottom: toRem(40);
-    }
+    padding-bottom: toRem(65);
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+ 
     // .hero__container
 
     &__container {
+        flex-grow: 1;
     }
 
     // .hero__body
@@ -45,9 +46,9 @@
         @include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
     }
 
-		// .hero__title-item
+	// .hero__title-item
 
-		&__title-item {
+	&__title-item {
             position: relative;
             z-index: 3;
             @media (max-width: toEm(599.98)){          
@@ -55,7 +56,7 @@
                     margin-bottom: toRem(20);
                 }             
             }
-		}
+	}
 
     &__title {        
         // Anim
@@ -72,9 +73,9 @@
     }
     }
 
-		// .hero__media
+	// .hero__media
 
-		&__media {
+    &__media {
             position: relative;
             @media (min-width: toEm(600)) {
                 margin-left: toRem(-115);
@@ -84,13 +85,13 @@
                     margin-bottom: toRem(20);
                 }             
             }
-        }
-            // .hero__main-image-item
+    }
+    // .hero__main-image-item
     
-            &__main-image-item {
+    &__main-image-item {
                 position: relative;
                 z-index: 2;
-            }
+    }
       
     // .hero__main-image
 
@@ -111,18 +112,18 @@
             }
     }
  
-		// .hero__content
+	// .hero__content
 
-		&__content {
+	&__content {
             @media (max-width: toEm(599.98)) {
             display: flex;
             gap: toRem(20);
           }
-		}
+	}
 
-            // .hero__circle-image-item
+    // .hero__circle-image-item
     
-            &__circle-image-item {
+    &__circle-image-item {
                 position: relative;
                 z-index: 3;
                 @media (min-width:toEm(600)){
@@ -134,7 +135,7 @@
                     flex-shrink: 0;
                     flex-basis: toRem(100);
                 }
-            }
+    }
     
 	// .hero__circle-image
 
@@ -225,11 +226,6 @@
             transition: all 1.5s 1s;
             }
     }
- 		// .hero__text-item
-
-		&__text-item {
-		}
-
 
     // .hero__text
 
@@ -472,10 +468,15 @@
 }
 
 .decor-love {
+    position: relative;
+    @include adaptiveValue("padding-top", 235, 0);
 
     // .decor-love__line-item
 
     &__line-item {
+        position: absolute;
+        left: 0;
+        top: 0;
     }
 
     // .decor-love__line
