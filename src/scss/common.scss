@@ -11,7 +11,7 @@
     line-height: 1.33; /* 48/36 */
     letter-spacing: toRem(-1.5);
     &--big {
-        @include adaptiveValue("font-size", 60, 36, 0, 1026, 320);
+        @include adaptiveValue("font-size", 60, 36, 0, 1440, 320);
     }
     &--big {       
         line-height: 1.1; /* 66/60 */

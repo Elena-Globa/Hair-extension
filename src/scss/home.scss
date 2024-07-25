@@ -282,7 +282,7 @@
         position: relative;                
         &--start {
             @media (min-width:toEm(600)){
-                max-width: toRem(312);
+                flex-basis: toRem(312); /* 312/1240 */              
             }
         }
         &--end {   
@@ -291,7 +291,8 @@
             align-self: flex-end;
            }
            @media (min-width:toEm(600)){
-            max-width: toRem(365);
+            flex-basis: toRem(365); /* 365/1240 */        
+            
         } 
         }
   
@@ -307,7 +308,7 @@
 
     // .focused__body
 
-    &__body {            
+    &__body {       
         position: relative;
         z-index: 2;
         @include adaptiveValue("padding-top", 140, 20);  
@@ -316,6 +317,7 @@
     // .focused__title
 
     &__title {
+        @include adaptiveValue("font-size", 36, 24, 0, 1240, 320);
         &:not(:last-child) {
             @include adaptiveValue("margin-bottom", 20, 10);         
         }
@@ -389,7 +391,8 @@
 .love {
 
     background-color: #C5CEBD;
-    padding-block: toRem(150);
+    @include adaptiveValue("paddin-top",150 , 40);
+    @include adaptiveValue("paddin-bottom",150 , 40);
 
     // .love__content
 
@@ -398,34 +401,47 @@
         margin: 0 auto;
         align-items: flex-start;
 
-        display: flex;       
+        display: flex; 
+        @media (max-width:$tablet){
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
     // .love__picture
 
     &__picture {
-        flex: 1 1 38.75%; /* 558/1440 */
         position: relative;
+        @media (min-width:$tablet){
+            flex: 1 1 38.75%; /* 558/1440 */   
+        } 
+      
     }
        // .live__title
 
-    &__title {
-        margin-left: toRem(-120);
+    &__title {      
            &:not(:last-child) {
             @include adaptiveValue("margin-bottom", 42, 20);
+        }
+        @media (min-width:$tablet){
+            margin-left: toRem(-120);
         }
     }
   
     // .live__text
 
     &__text {
-        max-width: toRem(310);
+        @media (min-width:$tablet){
+            max-width: toRem(310);  
+        }
     }
 
     // .live__decor
 
     &__decor {
-        flex: 1 1 27.083333%; /* 390/1440 */
+        @media (min-width:$tablet){
+            flex: 1 1 27.083333%; /* 390/1440 */ 
+        }     
     }
     // .love__image
 
@@ -438,7 +454,7 @@
 
     // .love__decor-picture
 
-    &__decor-picture {
+    &__decor-picture {        
         position: absolute;
         bottom: 0;
         right: 0;
@@ -453,23 +469,29 @@
             height: 100%;
 		}
 
-
-
     // .love__body
-
     &__body {
-        flex: 1 1 34.17%;
-        z-index: 5;
-        padding-inline: toRem(55);
-        position: relative;
-        @include adaptiveValue("padding-top", 160, 0);
+        @include adaptiveValue("padding-left", 55, 15);
+        @include adaptiveValue("padding-right", 55, 15);
+        @include adaptiveValue("padding-top", 160, 0);  
     }
-
+    &__body {           
+        z-index: 5;       
+        position: relative;     
+        @media (min-width:$tablet){
+               flex: 1 1 34.17%;
+        }     
+    }
 }
 
-.decor-love {
-    position: relative;
+.decor-love {   
     @include adaptiveValue("padding-top", 235, 0);
+
+ 		// .decor-love__body
+
+	&__body {
+        position: relative;
+	}
 
     // .decor-love__line-item
 
@@ -477,19 +499,43 @@
         position: absolute;
         left: 0;
         top: 0;
+        width: 134.615385%; /* 525/390 */
+        aspect-ratio: 525 / 531;       
     }
 
     // .decor-love__line
 
     &__line {
+        width: 100%;
+        height: 100%;  
+        stroke-dasharray: 1800;   
+        stroke-dashoffset: 1800;
+        &._watcher-view {                
+            transition: all 1.5s linear 0.1s;
+            // stroke-dasharray: 0;   
+            stroke-dashoffset: 0;  
+        }     
     }
+
+		// .decor-love__hair-item
+
+		&__hair-item {
+           transform: translate(50%,0);       
+		}
 
     // .decor-love__hair
 
     &__hair {
-        max-width: 100%;
+        width: 100%;
         border-radius: toRem(50%);
-    }
+     }
+
+		// .decor-love__dryer-item
+
+		&__dryer-item {
+            transform: translate(0,-23.75%); /* 95/400 */
+		}
+
 
     // .decor-love__dryer
 
