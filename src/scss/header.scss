@@ -40,11 +40,14 @@
     &__logo {
         color: rgb(255, 255, 255);
         transition: color 0.3s;
-        font-family: Lexend Deca;
+        font-family: "PT Serif";
+        text-transform: uppercase;
+        text-align: center;
         font-size: toRem(32);
         letter-spacing:toRem(-1.2); 
         position: relative;
         z-index: 5;
+        max-width: 150px;
         @media (max-width: toEm(640)){
             font-size: toRem(24);
         } 
