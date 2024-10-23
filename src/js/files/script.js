@@ -244,7 +244,7 @@ const typewriterFunc = () => {
     setTimeout(typewriter, startDelay);
     }
 
-    function getRandomInt(min = 50, max = 450) {
+    function getRandomInt(min = 50, max = 150) {
         let rand = min + Math.random() * (max + 1 - min);
         return Math.floor(rand);
     }
