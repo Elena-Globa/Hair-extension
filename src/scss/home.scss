@@ -32,7 +32,7 @@
 }
 //====================================================================================================
 .hero {
-    padding-bottom: toRem(65);
+    // padding-bottom: toRem(65);
     min-height: 100svh;
     display: flex;
     align-items: center;
@@ -175,8 +175,8 @@
 	&__content {
             @media (max-width: toEm(599.98)) {
             display: flex;
-            // flex-direction: row-reverse;
-            gap: toRem(20);          
+            flex-direction: row-reverse;
+            // gap: toRem(20);          
           }
 	}
 
@@ -192,7 +192,8 @@
                 }
                 @media (max-width: toEm(599.98)) {
                     flex-shrink: 0;
-                    flex-basis: toRem(100);
+                    flex-basis: toRem(150);
+                    right: -10%;
                 }
     }
     
@@ -306,7 +307,8 @@
     }
     &__text-item {
         @media (max-width: toEm(599.98)) {    
-            align-self: center;            
+            align-self: center;  
+            text-align: end;        
         }
     }
 }
@@ -429,7 +431,7 @@
         align-items: start;
         justify-content: space-between;
         row-gap: toRem(50);    
-        @include adaptiveValue("column-gap", 80, 25, 0, $containerWidth, 991.98); 
+        @include adaptiveValue("column-gap", 50, 25, 0, $containerWidth, 991.98); 
         @media (max-width:$mobile){
             flex-direction: column;
             align-items: center;
@@ -468,7 +470,10 @@
 
     &__body {       
         position: relative;
-        z-index: 2;        
+        z-index: 2; 
+        flex: 1 0.5 400px;
+        
+         
         @include adaptiveValue("padding-top", 140, 20); 
         @media (max-width:$mobile){
             width: 100%; 
@@ -484,9 +489,43 @@
         }
     }
 
+ 
+		// .advantages__list
+
+		&__list {
+            display: flex;
+            flex-direction: column;
+            gap: toRem(10);
+            @include adaptiveValue("padding-left", 50, 40, 0, 1440, 320);
+		}
+
+		// .advantages__teaser
+
+		&__teaser {
+            position: relative;
+            line-height: 1.4;
+            @include adaptiveValue("font-size", 30, 21, 0, 1440, 320);    
+
+            &::before {
+                content: '';
+                position: absolute;              
+                // width: toRem(40);
+                // height: toRem(40);
+                top: toRem(4);
+                left: toRem(-50);
+                background: url(../img/advantages/ico_check.svg) 50% 50% / contain no-repeat;
+                @include adaptiveValue("left", -50, -40, 0, 1440, 320);
+                @include adaptiveValue("width", 40, 30, 0, 1440, 320);
+                @include adaptiveValue("height", 40, 30, 0, 1440, 320);              
+            }          
+		}
+
     // .advantages__text
 
-    &__text {     
+    &__text {         
+        color: $milkyColor; 
+        font-weight: 300; 
+        // @include adaptiveValue("font-size", 35, 24, 0, 1026, 320);  
         > p {
             &:not(:last-child) {
                 margin-bottom: toRem(10);

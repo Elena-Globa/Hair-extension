@@ -4,8 +4,8 @@
 	}
 	// .menu__body
 	&__body {
-		@media (max-width: $mobile) {
-			background-color: #fff;
+		@media (max-width: $tablet) {
+			background-color: $milkyColor;
 			position: fixed;
 			width: 100%;
 			height: 100%;
@@ -24,7 +24,7 @@
 				height: toRem(106);
 				left: -100%;
 				top: 0;
-				background-color: #fff;
+				background-color: $milkyColor;
 				transition: left 0.3s;
 				z-index: 2;
 			}
@@ -60,7 +60,7 @@
 //Burger Icon
 .icon-menu {
 	display: none;
-	@media (max-width: $mobile) {
+	@media (max-width: $tablet) {
 		display: block;
 		position: relative;
 		width: toRem(30);

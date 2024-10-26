@@ -1,9 +1,7 @@
 // Заголовки, загальні БЕМ блоки та інше...
 
 // title 
-.title {
-    @include adaptiveValue("font-size", 40, 24, 0, 1026, 320);
-}
+
 .title { 
     color: rgb(255, 255, 255);
     font-family: "Montserrat";       
@@ -11,6 +9,7 @@
     line-height: 120%; /* 48/40 */
     letter-spacing: toRem(-0.5);
     transition: all 0.3s;
+    @include adaptiveValue("font-size", 40, 24, 0, 1026, 320);
     &--min {
         @include adaptiveValue("font-size", 30, 18, 0, 1440, 320);    
     }
@@ -25,6 +24,30 @@
     line-height: 1.5; /* 24/16 */     
 }
 // Ссылки
+
+.hover-link {
+
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: attr(data-content);
+        display: inline-block;
+        color: $redColor;
+        width: 100%;
+        clip: rect(0, 0, 110px, 0);
+        -webkit-transition: clip cubic-bezier(0.25, 0.46, 0.45, 0.94) 500ms;
+        transition: clip cubic-bezier(0.25, 0.46, 0.45, 0.94) 500ms;
+    }
+   @media (any-hover: hover){
+    &:hover{
+        &::before {
+            clip: rect(0, 110px, 110px, 0);
+        }
+    }
+   }
+
+}
 
 .book {
     position: relative;
@@ -111,9 +134,9 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  transition: all 250ms ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 250ms ease;
   
   @media (any-hover: hover){
     &:hover{
@@ -124,7 +147,12 @@
         }
     }
   }
-  
+
+  @media (max-width:$mobile){
+        display: block; 
+        text-align: center;   
+  }
+
   &:after {
     content: '';
     z-index: -1;
@@ -139,6 +167,11 @@
     animation: bgout 400ms;
     transform: skew(-45deg) translate(-150%);
   }
+}
+.div {
+    @media (max-width:$mobile){
+            width: 100%;        
+      }
 }
 @keyframes bgin{
   from {
