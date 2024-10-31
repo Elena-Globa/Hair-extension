@@ -16,6 +16,10 @@
     
     &__extension {
     }
+    // .page__hair
+
+       &__hair {
+    }
     // .page__services
 
     &__services {
@@ -688,6 +692,14 @@
         @media (min-width:$mobile){
             max-width: toRem(310);  
         }
+        span {
+            font-weight: 600;
+        }
+        > p {
+            &:not(:last-child) {
+                margin-bottom: toRem(10);
+            }
+        } 
     }
 
     // .live__decor
@@ -805,6 +817,130 @@
         max-width: 100%;
     }
     } 
+}
+// ===================================================================================================
+.hair {
+    background-color: #C5CEBD;
+    @include adaptiveValue("padding-top",150 , 40);
+    @include adaptiveValue("padding-bottom",150 , 40);
+
+    // .hair__container
+
+    &__container {
+    }
+
+    // .hair__title
+
+    &__title {
+        text-align: center;
+    }
+
+    // .hair__diagram
+
+    &__diagram {
+    }
+}
+.diagram-hair {
+
+    // .diagram-hair__row
+
+    &__row {
+        display: flex;
+        flex-direction: column
+    }
+  	// .diagram-hair__row--want
+
+	&__row--want {
+        display: flex;
+        gap: toRem(10);
+	}
+
+    // .diagram-hair__title
+
+    &__title {
+
+    }
+		// .diagram-hair__list
+
+		&__list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);           
+		}
+
+    // .diagram-hair__length
+
+    &__length {
+       
+    }
+
+    // .diagram-hair__title--row
+
+    &__title--row {
+    }
+
+    // .diagram-hair__item
+
+    &__item {
+        aspect-ratio: 1 / 1;
+        // flex-basis: ;
+        overflow: hidden;
+        border: toRem(3) solid #f5f3ea;;
+        border-radius: 50%;       
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    // .diagram-hair__item--circle
+
+    &__item--circle {
+     
+    }
+
+    // .diagram-hair__bang
+
+    &__bang {
+    }
+
+    // .diagram-hair__volume
+
+    &__volume {
+    }
+
+    // .diagram-hair__quantity
+
+    &__quantity {
+    }
+}
+.length-hair {
+
+    // .length-hair__title
+
+    &__title {
+    }
+}
+.bang-hair {
+
+    // .bang-hair__title
+
+    &__title {
+    }
+}
+.volume-hair {
+
+    // .volume-hair__title
+
+    &__title {
+    }
+}
+.quantity-hair {
+
+    // .quantity-hair__title
+
+    &__title {
+    }
 }
 
 //====================================================================================================
