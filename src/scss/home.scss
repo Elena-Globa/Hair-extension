@@ -20,6 +20,14 @@
 
        &__hair {
     }
+      // .page__length
+
+      &__length {
+    }
+       // .page__procedure
+
+       &__procedure {
+    }
     // .page__services
 
     &__services {
@@ -330,13 +338,25 @@
         font-weight: 500; 
         line-height: 1.3;  
         text-align: center;
+        &:not(:last-child) {
+            margin-bottom: toRem(20)
+        }
         @include adaptiveValue("font-size", 30, 20, 0, 1026, 320);
     }
 
     // .action-hero__btn
 
     &__btn {
-    }
+        font-size: toRem(30);
+        line-height: 1.5;
+        // padding: toRem(10) toRem(15);
+        border-radius: toRem(3);
+        text-transform: uppercase;
+        border: toRem(1) solid $redColor;
+        letter-spacing: toRem(1);
+        // background-color: $redColor;
+        @include adaptiveValue("font-size", 20, 15, 0, 1026, 320);     
+      }
 }
 .text-action {
 
@@ -433,13 +453,15 @@
 
         display: flex;
         align-items: start;
-        justify-content: space-between;
-        row-gap: toRem(50);    
+        justify-content: space-between;        
         @include adaptiveValue("column-gap", 50, 25, 0, $containerWidth, 991.98); 
         @media (max-width:$mobile){
             flex-direction: column;
             align-items: center;
         } 
+        @media (min-width:$mobile){
+            row-gap: toRem(50);   
+        }
     }
     &__picture {
         width: 100%;
@@ -474,22 +496,25 @@
 
     &__body {       
         position: relative;
-        z-index: 2; 
-        flex: 1 0.5 400px;
-        
-         
+        z-index: 2;                      
         @include adaptiveValue("padding-top", 140, 20); 
         @media (max-width:$mobile){
             width: 100%; 
+        }
+        @media (min-width:$mobile){
+            flex: 1 0.5 400px;
         }          
     }
 
     // .advantages__title
 
     &__title {
-        @include adaptiveValue("font-size", 36, 24, 0, 1240, 320);
+        @include adaptiveValue("font-size", 36, 28, 0, 1240, 320);
         &:not(:last-child) {
-            @include adaptiveValue("margin-bottom", 20, 10);         
+            @include adaptiveValue("margin-bottom", 30, 15);         
+        }
+        span {
+            color: #f5f3ea;
         }
     }
 
@@ -515,9 +540,9 @@
                 position: absolute;              
                 // width: toRem(40);
                 // height: toRem(40);
-                top: toRem(4);
+                top: toRem(0);
                 left: toRem(-50);
-                background: url(../img/advantages/ico_check.svg) 50% 50% / contain no-repeat;
+                background: url(../img/advantages/check.svg) 50% 50% / contain no-repeat;
                 @include adaptiveValue("left", -50, -40, 0, 1440, 320);
                 @include adaptiveValue("width", 40, 30, 0, 1440, 320);
                 @include adaptiveValue("height", 40, 30, 0, 1440, 320);              
@@ -648,8 +673,8 @@
 
 .extension {
     background-color: #C5CEBD;
-    @include adaptiveValue("padding-top",150 , 40);
-    @include adaptiveValue("padding-bottom",150 , 40);
+    // @include adaptiveValue("padding-top",150 , 40);
+    // @include adaptiveValue("padding-bottom",150 , 40);
 
     // .extension__content
 
@@ -809,20 +834,22 @@
 
 		&__dryer-item {
             transform: translate(0,-23.75%); /* 95/400 */
+            
 		}
 
     // .decor-extension__dryer
 
     &__dryer {
         max-width: 100%;
+        border-radius: toRem(5);
     }
     } 
 }
 // ===================================================================================================
 .hair {
     background-color: #C5CEBD;
-    @include adaptiveValue("padding-top",150 , 40);
-    @include adaptiveValue("padding-bottom",150 , 40);
+    @include adaptiveValue("padding-top",50 , 40);
+    @include adaptiveValue("padding-bottom",100 , 40);
 
     // .hair__container
 
@@ -833,6 +860,7 @@
 
     &__title {
         text-align: center;
+        color: rgb(245, 243, 234);
         &:not(:last-child) {
             @include adaptiveValue("margin-bottom", 42, 20);
         }
@@ -879,13 +907,15 @@
        @include adaptiveValue("margin-bottom", 30, 20);
         } 
         &::after {
-            position: absolute;
-            content: '';   
-            background: url(../img/hair/arrow.svg) left / cover no-repeat;
-            top: 100%;
-            left: 50%;
-            @include adaptiveValue("height", 35, 30, 0, $containerWidth, 991.98);  
-            @include adaptiveValue("width", 20, 15, 0, $containerWidth, 991.98);     
+            @media (max-width:$mobile){
+                position: absolute;
+                content: '';   
+                background: url(../img/hair/arrow.svg) left / cover no-repeat;
+                top: 100%;
+                left: 50%;
+                @include adaptiveValue("height", 35, 30);  
+                @include adaptiveValue("width", 20, 15);  
+            }     
         }
         @media (min-width:$mobile){
             &::before {
@@ -1080,11 +1110,14 @@
         gap: toRem(10);        
         @include adaptiveValue("padding-top", 20, 10, 0, $containerWidth, 991.98); 
     }
-    &__quantity--bang {
-        @include adaptiveValue("gap", 10, 105); 
+    &__quantity--bang, &__quantity--volume-hair {
+        @media (max-width:$mobile){
+            @include adaptiveValue("gap", 10, 105);  
+        }
+       
     }
     &__quantity--volume-hair {
-        @include adaptiveValue("gap", 10, 105); 
+      
     }
     // .quantity-hair__item
 
@@ -1181,13 +1214,229 @@
         padding: toRem(10) toRem(5)
     }
 }
-.quantity-hair {
 
-    // .quantity-hair__title
+//====================================================================================================
+.length {   
+    background-color: #c1b8cb;
+    // @include adaptiveValue("padding-top",150 , 40);
+    @include adaptiveValue("padding-bottom",150 , 40);
 
-    &__title {
+    // .length__containner
+
+    &__container {
+        max-width: toRem(1240);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        // min-height: 100svh;
+        @include adaptiveValue("column-gap", 50, 25, 0, $containerWidth, 991.98); 
+        @media (max-width:$mobile){
+              flex-direction: column-reverse;
+              row-gap: toRem(50);
+        }
+    }
+
+    // .length__image
+
+    &__image {
+      flex: 0 0.3 450px; 
+    //   flex-basis: 450px;
+    //   flex-shrink: 0.3;
+      img {
+        width: 100%;
+      }
+  
+        // @media (min-width:$mobile){
+        //     width: 50%;   
+        // }
+          
       
     }
+
+    // .length__content
+
+    &__content {
+        // flex-basis: 500px;
+    }
+
+    // .length__title
+
+    &__title {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 42, 20);           
+        }
+    }
+
+    // .length__text
+
+    &__text {
+        >p {
+            &:not(:last-child) {
+                margin-bottom: toRem(10);
+            }
+        }
+        span {
+            font-weight: 600;
+        }
+        ul {
+            margin-bottom: toRem(10);
+            li {
+                padding-left: toRem(35);
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;              
+                    width: toRem(20);
+                    height: toRem(20);
+                    top: toRem(4);
+                    left: toRem(10);
+                    background: url(../img/length/ico_check.svg) 50% 50% / contain no-repeat;
+                }
+            }
+        }
+    
+    }
+    &__text_show {
+        display: none;
+        transition: all 0.5s ease 0;
+    }
+}
+
+.block {
+
+    // .block__title
+
+    &__title {
+        display: none;
+        color: #847288;
+        font-weight: 600;    
+        span{           
+            display: inline-block;            
+            position: relative; 
+            width: toRem(25);
+            height: toRem(2);     
+            background-color: #847288;  
+            top: toRem(-3.5);
+            left: toRem(20);
+            transition: transform 0.3s ease 0s;
+            &::before, &::after {
+                content: '';
+                position: absolute;
+                width: toRem(8);
+                height: toRem(2);
+                background-color: #847288;  
+                right: toRem(-3);           
+            }
+            &::after {
+                top: toRem(2);
+                transform: rotate(-45deg);
+            }
+            &::before {
+                transform: rotate(45deg);
+                top: toRem(-3);
+            }
+        }  
+        @media (max-width: toEm(850)){
+              display: block;
+        } 
+    }
+  
+    // .block__text
+
+    &__text {
+    }
+}
+.block._init .block__title._active span {
+    transform: rotate(180deg);  
+}
+.length {
+
+    // .length__spolers
+
+    &__spolers {
+    }
+}
+// =======================================================================================
+.procedure {
+    background-color: #c1b8cb;
+    @include adaptiveValue("padding-top",150 , 40);
+
+    // .procedure__container
+
+    &__container {
+        max-width: toRem(1240);
+        margin: 0 auto;
+    }
+
+    // .procedure__title
+
+    &__title {
+        text-align: center;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom",42 ,20);
+        }
+    }
+
+    // .procedure__subtitle
+
+    &__subtitle {
+        // color: #fff;
+        line-height: 1.5;
+        margin-bottom: toRem(20);
+        @include adaptiveValue("font-size", 25, 16, 0, 1440, 320);     
+       
+    }
+
+    // .procedure__items
+
+    &__items {
+        display: grid;   
+      grid-template-columns: repeat(2, 1fr);
+    //    column-gap: toRem(30); 
+    //    row-gap: toRem(30); 
+        gap: toRem(40);
+    }
+
+    // .procedure__item
+
+    &__item {
+        
+    }
+}
+.item-procedure {
+    position: relative;  
+    b {
+        font-size: toRem(100);
+        color: #847288;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        opacity: 0.5;
+    }
+    // .item-procedure__title
+
+    &__title {
+        margin-top: toRem(40);
+        padding-left: toRem(40);
+        position: relative;
+        z-index: 2;
+        &:not(:last-child) {
+            margin-bottom: toRem(10)
+        }
+    }
+
+    // .item-procedure__text
+
+    &__text {
+        position: relative;
+        z-index: 2;
+        padding-left: toRem(40);
+    }
+}
+.title--mini {
+}
+.text {
 }
 
 //====================================================================================================
@@ -1493,7 +1742,7 @@
                 text-align: center;   
                 margin: 0 auto;            
             }      
-            // flex-shrink: 0;
+          
             &:nth-child(1) {
                 width: toRem(270);            
                 @media (min-width:toEm(600)){
@@ -1501,22 +1750,32 @@
                 }
             }
             &:nth-child(2) {
+                width: toRem(466);
                 flex-grow: 1;
                 position: relative;
                 z-index: 1;
                 @include adaptiveValue("margin-top", 100, 20);
                 @include adaptiveValue("margin-bottom", 70, 20);
                 @media (min-width: toEm(600)) {                  
-                    margin: 0 toRem(-86) 0 toRem(-50);
+                    margin: 0 toRem(-86) 0 toRem(-150);
                 }
            }
-           &:nth-child(3) {
+           &:nth-child(3) {          
+            position: relative;
             width: toRem(280);
             margin: 0 auto;
            }
 		}
     }
 .item-best {
+       // .item-best__video
+
+       &__video {
+        max-width: 100%;
+        border-radius: toRem(8);
+        position: relative;
+        z-index: 2;
+    }
        // .item-best__image
 
     &__image {
@@ -1525,7 +1784,10 @@
         position: relative;
         z-index: 2;
     }
+        // .item-best__image-item
 
+        &__image-item {
+        }
     // .item-best__deco-item
 
     &__deco-item {
@@ -1575,7 +1837,9 @@
 		// .item-best__body
 
 		&__body {
+            position: relative;
             max-width: toRem(280);
+            z-index: 2;
             @include adaptiveValue("padding-top", 100, 50);
             @include adaptiveValue("margin-left", 20, 0);
             @media (max-width:toEm(599.98)){
@@ -1596,6 +1860,20 @@
 		&__link {
 		}
 }
+.item-best {
+
+    // .item-best__image-item
+
+    &__image-item {
+    }
+
+    // .item-best__image
+
+    &__image {
+    }
+}
+
+
 
 
 
