@@ -6,6 +6,7 @@
 	<body>
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
+			@@include('html/_popup.htm',{})
 			<main class="page">
 				<section data-prlx-parent  data-watch class="page__hero hero">
 					<div class="hero__container">
@@ -117,7 +118,7 @@
 									<li class="advantages__teaser title--min">Безопасно для ваших волос</li>
 									<li class="advantages__teaser title--min">Уникальная авторская методика</li>
 									<li class="advantages__teaser title--min">Делаем капсулу размером с рисинку</li>
-									<li class="advantages__teaser title--min">Приготовтесь отбваться от поклонников</li>
+									<li class="advantages__teaser title--min">Приготовтесь отбиваться от поклонников</li>
 								</ul>												
 							</div>
 							<div  data-prlx-parent class="advantages__picture advantages__picture--end">
@@ -180,12 +181,22 @@
 					</div>
 					</div>					
 				</section>
-				<section class="page__hair hair">
+				<section class="page__what what">
+					<div class="what__container">
+						<div class="what__description">
+							<h3 class="what__title">Какие волосы мы используем?</h3>
+							<p class="what__text">Славянские волосы (славянка или истинная славянка) - 
+								только 100% натуральные состриженные волосы со славянских женщин и детей. 
+								Славянка люкс - неокрашенные славянские волосы русых и пепельных тонов.</p>
+						</div>
+					</div>
+				</section>
+				<section data-prlx-parent class="page__hair hair">
 					<div class="hair__container">
-						<h2 class="hair__title title title--min">
+						<h2 data-prlx class="hair__title title title--min">
 							Сколько прядей нужно для наращивания волос?
 						</h2>
-						<div class="hair__diagram diagram-hair">
+						<div data-prlx class="hair__diagram diagram-hair">
 							<div class="diagram-hair__row">
 								<h3 class="diagram-hair__title title">Я хочу</h3><span class="span_van"></span>
 								<div class="diagram-hair__row--want">												
@@ -244,39 +255,43 @@
 					</div>
 				</section>
 				<section class="page__length length">
-					<div  data-prlx-parent class="length__container">
-						<div class="length__image">
-							<img data-prlx data-coefficient="2" src="@img/length/image-01.png" alt="image">
-						</div>					
-						<div class="length__content">
-							<h3 data-prlx class="length__title title">Как подобрать длину волос</h3>
-							<div data-prlx class="length__text text">
-								<p>При <span>выборе длины волос</span>, которую Вы хотите получить в результате наращивания, необходимо учитывать длину собственных волос.</p>
-								<p>Если Вы будете наращивать волосы впервые, то не стоит резко увеличивать длину, иначе Вам может быть очень сложно ухаживать за наращенными волосами.</p>
-								<p>Когда Ваши и наращенные волосы сильно различаются по длине, очень трудно скрыть "переход". Это означает, что может быть заметно, что у Вас наращенные волосы.</p>								
-								<p>Этот "переход" можно скрыть, если:</p>
-								<div data-showtexts="850,max" class="block">
-									<div id="show" class="block__text">								
-										<ul>
-											<li>наростить большее количество прядей</li>
-											<li>сделать градуировку &#40нарастить волосы разной длины, или подстричь их после наращивания&#41</li>
-											<li>профилировать кончики своих волос</li>
-										</ul>
-										<p>Все подобные вопросы решаются в индивидуальном порядке с мастером, который будет осуществлять наращивание волос исходя из Вашей стрижки, густоты и пр.</p>
-									</div>	
-									<button data-showtext id="toggleButton" type="button" class="block__title">Читать далее<span></span></button>
-								</div>								
-								<p><span>Вы всегда можете получить консультацию у наших специалистов, и это будет залогом успешного наращивания и красивой прически!</span></p>
+					<div  data-prlx-parent class="length__container">				
+							<div class="length__image">
+								<img data-prlx data-coefficient="2" src="@img/length/image-01.png" alt="image">
+							</div>					
+							<div data-prlx class="length__content">
+								<h3  class="length__title title">Как подобрать длину волос?</h3>
+								<div class="length__text text">
+									<p>При <span>выборе длины волос</span>, которую Вы хотите получить в результате наращивания, необходимо учитывать длину собственных волос.</p>
+									<p>Если Вы будете наращивать волосы впервые, то не стоит резко увеличивать длину, иначе Вам может быть очень сложно ухаживать за наращенными волосами.</p>
+									<p>Когда Ваши и наращенные волосы сильно различаются по длине, очень трудно скрыть "переход". Это означает, что может быть заметно, что у Вас наращенные волосы.</p>								
+									<p>Этот "переход" можно скрыть, если:</p>
+									<div data-showtexts="850,max" class="block">
+										<div id="show" class="block__text">								
+											<ul>
+												<li>наростить большее количество прядей</li>
+												<li>сделать градуировку &#40нарастить волосы разной длины, или подстричь их после наращивания&#41</li>
+												<li>профилировать кончики своих волос</li>
+											</ul>
+											<p>Все подобные вопросы решаются в индивидуальном порядке с мастером, который будет осуществлять наращивание волос исходя из Вашей стрижки, густоты и пр.</p>
+										</div>	
+										<button data-showtext id="toggleButton" type="button" class="block__title">Читать далее<span></span></button>
+									</div>								
+									<p><span>Вы всегда можете получить консультацию у наших специалистов, и это будет залогом успешного наращивания и красивой прически!</span></p>
+								</div>
+								<a href="#" data-popup="#popup" class="length__link book"><span>Записаться на консультацию</span></a>
 							</div>
-						</div>
-						
-					</div>
-				</section>
+					</div>						
+				</section>			
 				<section data-prlx-parent class="page__procedure procedure">
-					<div class="procedure__container">
+						  <div class="banner">
+						<!-- <div class="banner__content">...</div> -->
+						<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1280 140"><path d="M0 51.76c36.21-2.25 77.57-3.58 126.42-3.58 320 0 320 57 640 57 271.15 0 312.58-40.91 513.58-53.4V0H0z" fill="#d2cdd8"/><path d="M0 24.31c43.46-5.69 94.56-9.25 158.42-9.25 320 0 320 89.24 640 89.24 256.13 0 307.28-57.16 481.58-80V0H0z" fill="#b2a9bd"/><path d="M0 0v3.4C28.2 1.6 59.4.59 94.42.59c320 0 320 84.3 640 84.3 285 0 316.17-66.85 545.58-81.49V0z" fill="#d3cdd9"/></svg>
+					</div>	
+					<div data-prlx  class="procedure__container">
 						<h3 class="procedure__title title">Как происходит наращивание волос?</h3>
-						<p class="procedure__subtitle title--min">В студии <span>красивые волосы</span> процедура наращивания волос проходит в несколько этапов</p>
-						<div class="procedure__items">
+						<p class="procedure__subtitle title--min">В студии процедура проходит в несколько этапов:</p>
+						<div data-prlx class="procedure__items">
 							<div class="procedure__item item-procedure">
 								<b>01</b>
 								<h6 class="item-procedure__title title--min">Подбираем тип, количество и цвет волос</h6>
@@ -296,6 +311,39 @@
 								<b>04</b>
 								<h6 class="item-procedure__title title--min">Делаем адаптационную стрижку</h6>
 								<p class="item-procedure__text text">В конце процедуры делаем адаптационную стрижку, чтобы ваши волосы выглядели идеально.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section data-prlx-parent class="page__best best">
+					<div class="best__container">
+						<div class="best__content">							
+							<div class="best__item item-best">
+								<div data-prlx class="item-best__image-item">
+									<img class="item-best__image" src="@img/best/image-01.png" alt="Image">
+								</div>	
+								<!-- <img data-prlx data-coefficient="2" class="item-best__image" src="@img/best/image-01.png" alt="Image"> -->
+							</div>
+							<div data-prlx class="best__item item-best">
+								<img data-prlx data-coefficient="2" class="item-best__image" src="@img/best/image-02.jpeg" alt="Image">
+													
+								<div data-watch class="item-best__deco-item">
+									<img class="item-best__deco" src="@img/best/deco-01.svg" alt="Image">
+								</div>
+								<div data-watch class="item-best__figure-item">
+									<img class="item-best__figure" src="@img/best/deco-02.svg" alt="Image">
+								</div>
+							</div>
+							<div data-prlx class="best__item item-best">
+								<video class="item-best__video" loop autoplay muted>
+									<source src="@img/best/video-02.webm" type="video/webm">
+									<source src="@img/best/video-02.mp4" type="video/mp4">
+								</video>
+							
+								<div data-prlx data-coefficient="1.5" class="item-best__body">
+									<h2 class="item-best__title title">Запишитесь в нашу студию</h2>
+									<a href="#"  data-popup="#popup" class="item-best__link book"><span>Записаться на процедуру</span></a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -338,44 +386,11 @@
 						</div>
 						<div data-prlx class="services__content content-services">
 							<h4 class="content-services__title title">Мы умеем делать красоту</h4>
-						<a href="#" class="content-services__link book"><span>Записаться на процедуру</span></a>
+						<a href="#" data-popup="#popup" class="content-services__link book"><span>Записаться на процедуру</span></a>
 						</div>
 					</div>					
 					</div>
-				</section>
-				<section data-prlx-parent class="page__best best">
-					<div class="best__container">
-						<div class="best__content">							
-							<div class="best__item item-best">
-								<div data-prlx class="item-best__image-item">
-									<img class="item-best__image" src="@img/best/image-01.png" alt="Image">
-								</div>	
-								<!-- <img data-prlx data-coefficient="2" class="item-best__image" src="@img/best/image-01.png" alt="Image"> -->
-							</div>
-							<div data-prlx class="best__item item-best">
-								<img data-prlx data-coefficient="2" class="item-best__image" src="@img/best/image-02.jpeg" alt="Image">
-													
-								<div data-watch class="item-best__deco-item">
-									<img class="item-best__deco" src="@img/best/deco-01.svg" alt="Image">
-								</div>
-								<div data-watch class="item-best__figure-item">
-									<img class="item-best__figure" src="@img/best/deco-02.svg" alt="Image">
-								</div>
-							</div>
-							<div class="best__item item-best">
-								<video class="item-best__video" loop autoplay muted>
-									<source src="@img/best/video-02.webm" type="video/webm">
-									<source src="@img/best/video-02.mp4" type="video/mp4">
-								</video>
-							
-								<div data-prlx data-coefficient="1.5" class="item-best__body">
-									<h2 class="item-best__title title">Запишитесь в нашу студию</h2>
-									<a href="#" class="item-best__link book"><span>Book an Appoitment</span></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+				</section>				
 				<section data-prlx-parent class="page__passion passion">
 					<div class="passion__container">
 						<div data-prlx class="passion__content">
@@ -385,7 +400,9 @@
 									Отправьте заявку, мы перезвоним Вам и подробно проконсультируем.							
 								</p>
 							</div>
+							<a href="#" data-popup="#popup" class="passion__link book"><span>Отправить заявку</span></a>
 						</div>
+					
 							<div class="passion__important-item">
 								<div data-prlx class="passion__important">Более 10 лет на рынке</div>
 							</div>

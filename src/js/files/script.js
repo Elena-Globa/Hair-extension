@@ -196,7 +196,7 @@ const printFunc = () => {
     })
 }
 // printFunc()
-const typewriterFunc = () => {
+const typewriterFunc  = () => {
     const typewtiterElements = document.querySelectorAll('#typing');
    
  
@@ -467,6 +467,199 @@ let _slideToggle = (target, duration = 500) => {
 }
 showTexts ()
 
+// Маска ввода телефона
+const phoneInput = () => {
+    document.addEventListener("DOMContentLoaded", function() {
+        const phoneInputs = document.querySelectorAll('input[data-tel-input]');
+        console.log('phoneInputs', phoneInputs);
+        // Эта функция принимает input и возвращает только числа, буду вырезать все символы кроме чисел
+        // и буду с ними работать
+        let getInputNunbersValue = function(input) {
+            return input.value.replace(/\D/g, "")          
+        }
+     
+        let onPhoneInput = function(e) {
+            let input = e.target,                
+                inputNumbersValue = getInputNunbersValue(input),
+                // рузультат который на финише установим инпуту
+                formatedInputValue = "",
+            //Если инпут пустой после обрезки, то очищаю поле ввода
+                selectionStart = input.selectionStart;
 
+            if (!inputNumbersValue){
+                return input.value = "";
+            } 
 
+            if (input.value.length != selectionStart) {
+                console.log('середина', e);
+                if (e.data && /\D/g.test(e.data)) {
+                    input.value = inputNumbersValue;
+                }
+                return
+            }
+            // Определяю украинский номер или нет 
+            if (["3", "8", "0"].indexOf(inputNumbersValue[0]) > -1){
+                // if (inputNumbersValue[0] == "8") inputNumbersValue = "3" + inputNumbersValue;
+              if (inputNumbersValue[0] == "0") inputNumbersValue = "38" + inputNumbersValue;
+            //   if (inputNumbersValue[0] == "8") inputNumbersValue = "3" + inputNumbersValue;
+             
+            //   Если человек начинает набор с 8, то номер начинается с 8
+            // Если с 7, то ок, номер с 7
+            // Начинаю собирать
+            // Если inputNumbersValue[0] = 8, тогда будет 8, в противном случае будет +3
+              let firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+38";
+              formatedInputValue = firstSymbols;  
+              if (firstSymbols === "+38") {
+                if (inputNumbersValue.length > 1){
+                    formatedInputValue += " (" + inputNumbersValue.substring(2, 5);
+                    }
+                    if (inputNumbersValue.length >= 6){
+                        formatedInputValue +=") " + inputNumbersValue.substring(5, 8);
+                    }
+                    if (inputNumbersValue.length >= 9){
+                        formatedInputValue += '-' + inputNumbersValue.substring(8, 10);
+                    }
+         
+                    if (inputNumbersValue.length >= 11){
+                        formatedInputValue += '-' + inputNumbersValue.substring(10, 12);
+                    }
+              } else {
+                if (inputNumbersValue.length > 1){
+                    formatedInputValue += " (" + inputNumbersValue.substring(1, 4);
+                    }
+                    if (inputNumbersValue.length >= 5){
+                        formatedInputValue +=") " + inputNumbersValue.substring(4, 7);
+                    }
+                    if (inputNumbersValue.length >= 8){
+                        formatedInputValue += '-' + inputNumbersValue.substring(7, 9);
+                    }
+   
+                    if (inputNumbersValue.length >= 10){
+                        formatedInputValue += '-' + inputNumbersValue.substring(9, 11);
+                    }
+              }          
+                 
+             } else {
+                formatedInputValue = "+" + inputNumbersValue.substring(0, 16);
+            }
+            input.value = formatedInputValue;
+        }    
+ 
+        let onPhoneKeyDown = function(e){            
+            let input = e.target;           
+            if(e.keyCode == 8 && getInputNunbersValue(input).length == 2) {          
+                input.value = "";             
+            }
+        };
 
+        let onPhonePaste = function(e){
+            let pastedText = e.clipboardData || window.clipboardData,
+                input = e.target,
+                inputNumbersValue = getInputNunbersValue(input);
+
+                if (pasted){
+                    let pastedText = pasted.getData("Text");
+                    if (/\D/g.test(pastedText)){
+                        input.value = inputNumbersValue;
+                    }
+                }
+        }
+
+        for (let i=0; i<phoneInputs.length; i++) { 
+            let input = phoneInputs[i];
+            input.addEventListener("input", onPhoneInput);
+            input.addEventListener("keydown", onPhoneKeyDown);
+            input.addEventListener("pasted", onPhonePaste);
+        };
+    });
+};
+ phoneInput ()
+
+// form
+const formInit = () => {
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('form');
+
+        // При отправке формы заходим в функцию formSend
+        form.addEventListener('submit', formSend);
+
+        // Запрещаю стандартную отправку формы
+        async function formSend(e) {
+            e.preventDefault();
+
+            // Делаю валидацию
+            let error = formValidate(form);
+
+            if (error === 0) {
+                form.classList.add('_sending');
+                
+                let response = await fetch('sendmail.php', {
+                    method: 'POST',
+                    // body: formData
+                });
+                if (response.ok) {
+                    let result = await response.json();
+                    alert(result.message);                
+                    form.reset();
+                    form.classList.remove('_sending');
+                } else {
+                    alert("Ошибка");
+                    form.classList.remove('_sending');
+                }
+                    
+            } else {
+                alert ('Заполните обязательные поля')
+            }
+            // Создаю переменную и присваиваю ей результат работы другой функции
+
+            function formValidate(form) {
+                let error = 0;
+                let formReq = document.querySelectorAll('._req');
+                console.log(formReq, 'formReq');
+                // Пробегаюсь по всем обязательным полям
+                for (let index = 0; index < formReq.length; index++) {
+                    const input = formReq[index];
+                    formRemoveError(input);
+
+                    if (input.getAttribute("type") === "checkbox" && input.checked === false) {
+                        formAddError(input);
+                        error++;
+                        console.log('error');
+                    } else {
+                        if (input.value === '') {
+                            formAddError(input); 
+                            error++;
+                        }
+                    }
+                }
+                return error;
+            }
+
+           function formAddError(input) {
+            input.parentElement.classList.add('_error');
+            input.classList.add('_error');
+           }
+           function formRemoveError(input) {
+            input.parentElement.classList.remove('_error');
+            input.classList.remove('_error');
+           }
+        }
+    });
+}
+formInit()
+
+// Hover rotate
+const hoverRotate = () => {
+    const btn = document.getElementById('hoverRotate');
+    btn.addEventListener('mouseover', function() {
+        btn.classList.remove('_out');
+        btn.classList.add('_over');
+       
+    });
+    btn.addEventListener('mouseout', function() {
+        btn.classList.remove('_over');
+        btn.classList.add('_out');
+    });  
+
+}
+hoverRotate()

@@ -22,7 +22,7 @@
 	*/
 
 	//Від кого лист
-	$mail->setFrom('from@gmail.com', 'Фрілансер по життю'); // Вказати потрібний E-mail
+	$mail->setFrom('elenasachno8@gmail.com', 'Фрілансер по життю'); // Вказати потрібний E-mail
 	//Кому відправити
 	$mail->addAddress('to@gmail.com'); // Вказати потрібний E-mail
 	//Тема листа

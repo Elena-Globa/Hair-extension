@@ -1,15 +1,39 @@
 <div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
+	<div class="popup__wrapper">		
 		<div class="popup__content">
-			<button data-close type="button" class="popup__close">
+			<button data-close id="hoverRotate" type="button" class="popup__close">
 				<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
 					<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
 				</svg>
 			</button>
-			<div class="popup__text">
-				Popup content
-			</div>
+			<div class="popup__form">
+				<!-- action="https://api.web3forms.com/submit" -->
+				<form action="#" method="POST" id="form" class="form__body">
+					<input type="hidden" name="access_key" value="87aaa4cd-bda8-43ad-a373-6c5b3deccbcf">
+					<h1 class="form__title title title--min">Форма заявки</h1>
+					<div class="form__item">
+						<label for="formName" class="form__label">Имя*</label>
+						<input id="formName" type="text" name="name" class="form__input _req">
+					</div>
+					<div class="form__item">
+						<label for="formTel" class="form__label">Телефон*</label>
+						<input id="formTel" type="tel" data-tel-input maxlength="19" class="form__input _req">
+					</div>
+					<div class="form__item">
+						<label for="formMessage" class="form__label">Сообщение</label>
+						<textarea data-autoheight name="message" id="formMessage"  class="form__textarea"></textarea>
+					</div>
+					<div class="form__item">
+						<div class="checkbox">
+							<input id="agreement" checked type="checkbox" class="checkbox__input _req" name="agreement">
+							<label for="agreement" class="checkbox__label"><span>Я даю своё согласие на обработку персанальных данных в соответсткии с <a href="#">Условиями</a>*</span></label>
+						</div>
+					</div>
+					<button type="submit" class="form__button btn--green"><span>Отправить</span></button>
+					
+				</form>
+			</div>			
 		</div>
 	</div>
 </div>

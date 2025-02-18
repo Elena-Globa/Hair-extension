@@ -82,7 +82,7 @@
         }
     }
 }
-.btn {
+.btn, .btn--green {
     position: relative;
     color: #fff;
     letter-spacing: toRem(-0.4);    
@@ -91,8 +91,9 @@
     padding-left: toRem(20);
     padding-right: toRem(20);
     padding-top: toRem(10);
-    padding-bottom: toRem(10);
-    background-color: #F95454;
+    padding-bottom: toRem(10); 
+    border-radius: toRem(3);
+
     span {
         position: relative;
         z-index: 2;
@@ -102,7 +103,7 @@
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: #fd022e;
+      
         height: toRem(0);
         width: 100%;
         transition: all 0.3s;
@@ -116,5 +117,19 @@
         }
     }
 }
-
+.btn {
+    background-color: #F95454;
+    &::after {
+        background-color: #fd022e;
+    }
+}
+.btn--green {
+    background-color: #63847F;
+    &::after {
+        background-color: #64a49b; 
+        }
+    &:active {
+        top: toRem(3);
+    }
+}
 
