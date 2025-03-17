@@ -364,23 +364,20 @@ function initshowTexts(showTextsArray, matchMedia = false) {
     function setShowTextAction(e) {
         const el = e.target;
         if (el.hasAttribute('data-showtext') || el.closest('[data-showtext]')) {
-            const showtextTitle = el.hasAttribute('data-showtext') ? el : el.closest('[data-showtext]');
-            console.log(showtextTitle, 'showtextTitle1');
-            if (!showtextTitle.classList.contains('_active')) {
-                console.log('привет')
+            const showtextTitle = el.hasAttribute('data-showtext') ? el : el.closest('[data-showtext]');      
+            if (!showtextTitle.classList.contains('_active')) {          
                 showtextTitle.innerHTML = 'Свернуть<span></span>';} else
                  {showtextTitle.innerHTML = 'Читать далее<span></span>'}
             const showtextsBlock = showtextTitle.closest('[data-showtext]');
             const oneShowtext = showtextsBlock.hasAttribute('data-one-showtext') ? true : false;
             if (!showtextsBlock.querySelectorAll('_slide').length) {
-                if (oneShowtext && !showtextTitle.classList.contains('_active')) { 
-                    console.log(showtextTitle,'showtextTitle')  
+                if (oneShowtext && !showtextTitle.classList.contains('_active')) {               
                              
                     hideShowtextsBody(showtextsBlock);
 
                 }
-                showtextTitle.classList.toggle('_active');             
-                // console.log(showtextTitle,'showtextTitle') 
+                showtextTitle.classList.toggle('_active');            
+       
                 _slideToggle(showtextTitle.previousElementSibling, 500);
             }
             e.preventDefault();            
@@ -663,3 +660,37 @@ const hoverRotate = () => {
 
 }
 hoverRotate()
+// hover relation
+const hoverRelation = () => {
+    const linksArray = document.querySelectorAll('#link');
+
+    if (linksArray.length > 0) {
+        for (let i=0; i<linksArray.length; i++) {           
+            let item = linksArray[i];
+            // console.log(!item.previousElementSibling, '!');
+           if (!item.previousElementSibling === false) {
+            item.addEventListener("mouseover", hoverLinkTopAdd);
+            item.addEventListener("mouseout", hoverLinkTopRemove);
+            function hoverLinkTopAdd () {
+                
+                item.previousElementSibling.classList.add("_hover-relation")
+            }
+            function hoverLinkTopRemove () {
+                item.previousElementSibling.classList.remove("_hover-relation");
+            }
+           } else {
+                item.addEventListener("mouseover", hoverLinkBottomAdd);
+                item.addEventListener("mouseout", hoverLinkBottomRemove);
+           }
+           function hoverLinkBottomAdd() {
+                item.nextElementSibling.classList.add("_hover-relation");
+           }
+           function hoverLinkBottomRemove() {
+                item.nextElementSibling.classList.remove("_hover-relation");
+           }
+        }
+
+    } 
+
+}
+hoverRelation()

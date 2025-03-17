@@ -644,7 +644,6 @@
     // background-color: #C5CEBD;
     position: relative;
     background-color: rgb(190, 196, 176);
-        background-color: rgb(185, 198, 183);  
     &::after {
         position: absolute;
         content: '';
@@ -1092,9 +1091,8 @@
 }
 
 // ===================================================================================================
-.hair {
-    background-color: #C5CEBD;
-    background-color: rgb(179, 195, 177);  
+.hair {   
+    background-color: rgb(190, 196, 176);  
     // @include adaptiveValue("padding-bottom",100 , 40);
     position: relative;
     @include adaptiveValue("padding-top",50 , 20);
@@ -1472,7 +1470,7 @@
 .length {   
     background-color: #d2cdd8;
     // background-color: #b2a9bd;
-    @include adaptiveValue("padding-top",150 , 40);
+    @include adaptiveValue("padding-top",100 , 0, 0, $containerWidth, 767.98);
     // @include adaptiveValue("padding-bottom",150 , 40);
 
     // .length__containner
@@ -1486,7 +1484,7 @@
         @include adaptiveValue("column-gap", 50, 25, 0, $containerWidth, 991.98); 
         @media (max-width:$mobile){
               flex-direction: column;
-              row-gap: toRem(50);
+            //   row-gap: toRem(50);
         }
     }
 
@@ -1947,6 +1945,9 @@
     &__text {
         color: #fff;
         max-width: toRem(450);
+        display: block;
+        margin: 0 auto;
+        margin-bottom: toRem(20);
     }
 
 	// .passion__image-item
