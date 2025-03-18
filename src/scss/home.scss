@@ -2333,4 +2333,140 @@
     }
 }
 //====================================================================================================
+.page {
+
+    // .page__contacts
+
+    &__contacts {
+    }
+}
+.contacts {
+
+    // .contacts__container
+
+    &__container {
+    }
+
+    // .contacts__head
+
+    &__head {
+    }
+
+    // .contacts__main
+
+    &__main {
+    }
+
+    // .contacts__invite
+
+    &__invite {
+    }
+}
+.invite {
+
+    // .invite__subtitle
+
+    &__subtitle {
+    }
+
+    // .invite__title
+
+    &__title {
+    }
+
+    // .invite__body
+
+    &__body {
+    }
+
+    // .invite__content
+
+    &__content {
+    }
+
+    // .invite__icon--top
+
+    &__icon--top {
+    }
+
+    // .invite__icon--bottom
+
+    &__icon--bottom {
+    }
+
+    // .invite__form
+
+    &__form {   
+    }
+}
+.form {
+    max-width: toRem(550);
+    margin: 0 auto;
+    padding: toRem(30) toRem(0);
+    // .form_item
+
+    &_item {     
+
+    }
+    &__item--file {
+        padding-top: toRem(20);
+    }
+    // .form__title
+
+    &__title {
+        font-size: 40;
+        font-weight: 700;
+        margin-bottom: toRem(30);
+    }
+
+    // .form__item
+
+    &__item {
+    }
+
+    // .form__label
+
+    &__label {
+    }
+
+    // .form__input
+
+    &__input {
+    }
+
+    // .form__file
+
+    &__file {
+    }
+
+    // .form__button
+
+    &__button {
+    }
+}
+.input {
+}
+.file {  
+
+    // .file__item
+
+    &__item {
+    }
+
+    // .file__input
+
+    &__input {
+    }
+
+    // .file__button
+
+    &__button {
+    }
+
+    // .file__preview
+
+    &__preview {
+    }
+}
+
 //====================================================================================================

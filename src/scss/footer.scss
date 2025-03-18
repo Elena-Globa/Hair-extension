@@ -131,15 +131,17 @@
                     top: toRem(0);                  
                 }
             }
+  
             &:nth-child(4) {
                 display: flex;           
                 gap: toRem(10);
                 // justify-content: center;
                 width: toRem(200);
-                padding-left: toRem(25); 
+                padding-left: toRem(25);               
                 img {
-                    width: toRem(40);
+                    width: toRem(40);                   
                 }
+          
             }
             @media (max-width:$mobile){
                 text-align: center; 
@@ -151,13 +153,24 @@
 		&__link {
             color: #fff;
             font-weight: 500;
+            transition: background-color 0.3s ease-in-out;  
             @media (any-hover: hover){
                 &:hover{
                     color: #f5f1e6;               
                 }
             }
 		} 
-        
+        &__link_social {         
+            border-radius: 50%;  
+            transition: background-color 0.3s ease-in-out;                        
+            @media (any-hover: hover){
+                &:hover{
+                    background-color: $redColor;
+                    border-radius: 50%;
+                   
+                }
+             }    
+        }
         // .footer-menu__subtitle
         
          &__subtitle {
@@ -351,15 +364,12 @@
 
 .invite {  
 
-    // .invite__title
+		// .invite__list
 
-    &__title {
-        text-transform: uppercase;
-        color: #fff;
-        &:not(:last-child) {
-            margin-bottom: toRem(22);
-        }
-    }
+		&__list {      
+        
+		}
+
     &__item {
         text-align: left;
         margin-bottom: toRem(15);
@@ -386,10 +396,7 @@
         color: #fff;
         font-size: toRem(16);   
         font-weight: 500; 
-        transition: all 0.3s;
-        &:first-child {
-            // text-transform: uppercase;
-        }
+        transition: all 0.3s;   
         &:nth-child(2) {
             padding: toRem(10) toRem(15) toRem(10) toRem(15);
             border: toRem(1) solid #fff;      
@@ -422,6 +429,9 @@
                 color: #f5f1e6;
             }
         }
+    }
+    &__link_gallery {
+        text-transform: uppercase;
     }
 }
 //====================================================================================================

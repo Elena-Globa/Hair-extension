@@ -486,6 +486,57 @@
 						</div>
 					</div>
 				</section>
+				<section class="page__contacts contacts">
+					<div class="contacts__container">
+						<div class="contacts__head">						
+							<img src="@img/icons/arrow-14.svg" alt="Image">
+						</div>
+						<div class="contacts__main">
+							<div class="contacts__invite invite">
+								<h4 class="invite__subtitle">Свяжитесь с нами</h4>
+								<h2 class="invite__title title">Записаться</h2>
+								<div class="invite__body">
+									<div class="invite__content">
+										<div class="invite__icon--top">
+											<img src="@img/contacts/image-01.svg" alt="Image">
+											<img src="@img/contacts/image-circle-01.jpeg" alt="Image">
+										</div>
+										<div class="invite__icon--bottom">
+											<img src="@img/contacts/image-02.svg" alt="Image">
+											<img src="@img/contacts/image-circle-02.jpg" alt="Image">
+										</div>
+									</div>
+									<form action="#" class="invite__form form" method="post">
+										<h5 class="form__title">Заполните форму и мы с Вами свяжимся в ближайшее время,
+											чтобы проконсультировать или записать на процедуру. </h5>
+											<div class="form__item">
+												<label for="formName" class="form__label">Имя*</label>
+												<input data-validate placeholder="name" id="formName" name="name" type="text" class="form__input input">
+											</div>
+											<div class="form_item">
+												<label for="formTel" class="form__label">Телефон*</label>
+												<input data-validate id="formTel" type="tel" data-tel-input maxlength="19" class="form__input">
+											</div>
+											<div class="form__item form__item--file">
+												<label for="" class="form__label">Прикрепить фото</label>
+												<div class="form__file">
+													<div class="file__item">
+														<input id="formImage" accept=".jpg, .png, .gif" name="image" type="file" class="file__input">
+														<div class="file__button">Выбрать</div>
+													</div>
+													<div class="file__preview"></div>
+												</div>
+											</div>
+											<button type="submit" class="form__button">Отправить</button>
+									</form>
+								</div>
+
+
+
+							</div>
+						</div>
+					</div>
+				</section>
 				<section data-prlx-parent class="page__services services">
 					<div class="services__container">
 						<h2 data-prlx class="services__title title">Услуги студии</h2>
@@ -548,7 +599,7 @@
 					<div class="passion__image-item">
 						<img class="passion__image ibg" src="@img/passion/image-01.png" alt="Image">
 					</div>
-				</section>				
+				</section>							
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
