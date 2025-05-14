@@ -85,7 +85,7 @@ const ghPages = require('gulp-gh-pages');
 const paths = {
 	scripts: {
 		src: './',
-		dest: './build',
+		dest: './dist',
 	}
 }
 
