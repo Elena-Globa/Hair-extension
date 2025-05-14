@@ -397,32 +397,11 @@
         font-size: toRem(16);   
         font-weight: 500; 
         transition: all 0.3s;   
-        &:nth-child(2) {
-            padding: toRem(10) toRem(15) toRem(10) toRem(15);
-            border: toRem(1) solid #fff;      
-            border-radius: 20% 50% / 40% 10%;
-            position: relative;
-            padding-right: toRem(20);
-         transition: all 0.3s;
-            &::after {
-                content: '';
-                position: absolute;
-                background: bottom / cover no-repeat url(../img/icons/arrow41.svg);
-                width: toRem(12);
-                height: toRem(12);
-                right: toRem(5);        
-                bottom: toRem(12);
-               
-            }
-            @media (any-hover: hover){
-                &:hover{
-                    border-radius: 200px;
-                    border-radius:  40% 10% / 20% 50%;
-                    p & {
-                        color: #fff;
-                    }
-                }
-            }
+        &:nth-child(2) { 
+          
+                &::before {
+                    background-color: #dfcdc3;
+                }         
         }
         @media (any-hover: hover){
             &:hover{

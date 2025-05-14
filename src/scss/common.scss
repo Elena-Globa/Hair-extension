@@ -132,4 +132,49 @@
         top: toRem(3);
     }
 }
-
+.button--arrow {
+    display: inline-flex;
+    border: toRem(2) solid #c4a1a8;       
+    padding: toRem(5) toRem(20) toRem(5) toRem(10);
+    letter-spacing: toRem(-0.4);    
+    transition: all 0.3s ;
+    position: relative;
+    @media (max-width:$mobile){
+         width: 100%;
+         text-align: center;
+         display: inline-block; 
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: toRem(12);
+        height: toRem(12);
+        background: center / contain no-repeat url(../img/contacts/arrow45.svg);
+        right: toRem(1);
+        top: toRem(1);        
+        transition: all 0.3s ;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        width: toRem(20);
+        height: toRem(20);
+        background-color: #ded5d0;
+        right: toRem(-3);
+        top: toRem(-3);
+        transition: all 0.3s ;
+    }
+    
+    @media (any-hover: hover){ 
+        &:hover{            
+            &::before {
+                opacity: 0;                  
+            }
+            &::after {
+                right: toRem(5);
+                top: toRem(5);
+            }
+           
+        }
+    }
+}

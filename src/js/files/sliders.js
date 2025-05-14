@@ -6,9 +6,9 @@
 
 // Підключаємо слайдер Swiper з node_modules
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
-// Приклад: { Navigation, Autoplay }
+// Приклад: { Navigation, Autoplay,  }
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, EffectFade, Controller } from 'swiper/modules';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -27,13 +27,18 @@ import "../../scss/base/swiper.scss";
 // Ініціалізація слайдерів
 function initSliders() {
 	// Список слайдерів
+	// transformation
 	// Перевіряємо, чи є слайдер на сторінці
-	if (document.querySelector('.swiper')) { // Вказуємо склас потрібного слайдера
-		// Створюємо слайдер
-		new Swiper('.swiper', { // Вказуємо склас потрібного слайдера
+
+	if (document.querySelector('.transformation') && document.querySelector('.text-transformation')) { 
+	
+		
+	
+		
+		const imageSwiper = new Swiper('.transformation',  { // Вказуємо склас потрібного слайдера
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
-			modules: [Navigation],
+			modules: [Navigation, Pagination, Controller, Autoplay, EffectFade],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -43,26 +48,32 @@ function initSliders() {
 
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
-			//preloadImages: false,
-			//lazy: true,
-
-			/*
+			loop: true,
+			// preloadImages: false,
+			// lazy: true,
+		
+			
 			// Ефекти
 			effect: 'fade',
 			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
+				delay: 4000,			
+				disableOnInteraction: true,
+
 			},
-			*/
+		
 
 			// Пагінація
-			/*
+	
 			pagination: {
-				el: '.swiper-pagination',
+				el: '.transformatio__pagination',
 				clickable: true,
+				type: 'fraction',
+				renderFraction: function(currentClass, totalClass) {
+					return 'Фото <span class="' + currentClass + '"></span>' + 
+					' из ' + '<span class="' + totalClass + '"></span>';
+				},
 			},
-			*/
+		
 
 			// Скроллбар
 			/*
@@ -74,9 +85,15 @@ function initSliders() {
 
 			// Кнопки "вліво/вправо"
 			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
+				prevEl: '.transformation__button-prev',
+				nextEl: '.transformation__button-next',
 			},
+		
+		
+			spaceBetween: 30,
+			
+			
+
 			/*
 			// Брейкпоінти
 			breakpoints: {
@@ -104,6 +121,30 @@ function initSliders() {
 
 			}
 		});
+		const textSwiper = new Swiper('.text-transformation', {
+			modules: [Pagination, Controller, Autoplay, EffectFade, Navigation],
+			spaceBetween: 30,
+			slidesPerView: 1,
+			loop: true,
+			speed: 800,
+				// Ефекти
+				effect: 'fade',
+			
+			pagination: {
+				el: '.swiper-text-pagination',
+				clickable: true,
+				type: 'fraction',
+				renderFraction: function(currentClass, totalClass) {
+					return 'Фото <span class="' + currentClass + '"></span>' + 
+					' из ' + '<span class="' + totalClass + '"></span>';
+				},
+			},
+		});	
+	
+			imageSwiper.controller.control = textSwiper;
+			textSwiper.controller.control = imageSwiper;		
+	}else{
+		console.error("Не найдены необходимые элементы для инициализации слайдеров.");
 	}
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
@@ -138,6 +179,11 @@ function initSlidersScroll() {
 window.addEventListener("load", function (e) {
 	// Запуск ініціалізації слайдерів
 	initSliders();
+
 	// Запуск ініціалізації скролла на базі слайдера (за класом swiper_scroll)
-	//initSlidersScroll();
+	// initSlidersScroll();
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // Ваш код инициализации слайдеров
+	// initSliders();
 });
