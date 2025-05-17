@@ -193,7 +193,7 @@ body::after {
 ._spoller-init .spollers__title::before {
   content: "";
   position: absolute;
-  background: url(../img/make/scissors.png) center/cover no-repeat;
+  background: url(../img/make/scissors.webp) center/cover no-repeat;
   width: 2.5rem;
   height: 2.5rem;
   top: 0;
@@ -1107,7 +1107,7 @@ body::after {
 }
 .waves::after {
   content: "";
-  background: top/contain repeat-y url(../img/make/image-06.png);
+  background: top/contain repeat-y url(../img/make/image-06.webp);
   width: 290px;
   height: 100%;
   position: absolute;
@@ -1654,10 +1654,10 @@ body::after {
   margin-bottom: 1.25rem
 }
 .form__item:nth-child(1) span::before {
-  background: center/contain no-repeat url(../img/icons/person.png)
+  background: center/contain no-repeat url(../img/icons/person.webp)
 }
 .form__item:nth-child(2) span::before {
-  background: center/contain no-repeat url(../img/icons/tel-pink.png)
+  background: center/contain no-repeat url(../img/icons/tel-pink.webp)
 }
 .form__item:nth-child(3) label {
   display: flex;
@@ -1671,7 +1671,7 @@ body::after {
   flex: 0 0 1.875rem;
   top: 0;
   margin-right: .625rem;
-  background: center/contain no-repeat url(../img/icons/message.png)
+  background: center/contain no-repeat url(../img/icons/message.webp)
 }
 .form__label {
   cursor: pointer;
@@ -1740,7 +1740,7 @@ body::after {
   content: "";
   flex: 0 0 24px;
   height: 1.5rem;
-  background: center/contain no-repeat url(../img/icons/clip.png);
+  background: center/contain no-repeat url(../img/icons/clip.webp);
   left: 0;
   top: 0;
   margin-right: .625rem
@@ -1838,7 +1838,7 @@ body::after {
   color: #fff
 }
 .location__item:nth-child(3) a::before {
-  background: center/contain no-repeat url(../img/icons/tel-wite.png);
+  background: center/contain no-repeat url(../img/icons/tel-wite.webp);
   flex: 0 0 1.375rem;
   height: 1.375rem
 }
@@ -2159,7 +2159,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(51,51,51,.588) url(../img/passion/loading.gif) center/3.125rem no-repeat;
+  background: rgba(51,51,51,.588) url(../img/passion/loading.webp) center/3.125rem no-repeat;
   opacity: 0;
   visibility: hidden;
   transition: all .5s ease 0s

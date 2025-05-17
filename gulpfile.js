@@ -78,30 +78,6 @@ export { deployZIP }
 // Виконання сценарію за замовчуванням
 gulp.task('default', development);
 
-// ===================================================
-// const gulp = require('gulp');
-const ghPages = require('gulp-gh-pages');
-
-const paths = {
-	scripts: {
-		src: './',
-		dest: './dist',
-	}
-}
-
-async function buildHtml() {
-	gulp.src(['*.html'])
-		.pipe(gulp.dest(paths.scripts.dest));
-}
-
-exports.default = async function (){
-	buildHtml();
-}
-
-gulp.task('deploy', function() {
-	return gulp.src('./dist/**/*')
-		.pipe(ghPages());
-});
-
+// "deploy": "gulp deployFTP --build", вернуть в json
 
 
