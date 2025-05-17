@@ -79,5 +79,6 @@ export { deployZIP }
 gulp.task('default', development);
 
 // "deploy": "gulp deployFTP --build", вернуть в json
+// "deploy": "gh-pages -d dist",
 
 
