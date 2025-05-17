@@ -37,6 +37,7 @@
 		"eslint-plugin-react-refresh": "latest",
 		"file-include-webpack-plugin-replace": "latest",
 		"file-loader": "^6.2.0",
+		"home-page": "https://github.com/Elena-Globa/Hair-extension.git",
 		"gh-pages": "^6.3.0",
 		"gulp": "^5.0.0",
 		"gulp-autoprefixer": "latest",
